@@ -26,166 +26,472 @@
 			<div class="slides">
 				<section>
 					<section>
-						<h1>Blockchain</h1>
+						<h1>&lt;CANVAS&gt</h1>
 						<aside class="notes">
-							When we say the words “block” and “chain” in this context, 
-							we are actually talking about digital information (the “block”) stored 
-							in a public database (the “chain”).
+							<canvas> is an HTML 
+							element which can be used to draw 
+							graphics via scripting. First this was introduced in WebKit 
+							by Apple for the OS X Dashboard. 
+							Today, all major browsers support it.
 						</aside>
 					</section>
 					<section>
-						<img data-src="src/block.png" width="700px">
+							<h2>&lt;CANVAS&gt</h2> can be used to:
+							<ol>
+								<li>draw graphs</li>
+								<li>combine photos</li>
+								<li>create simple (and not so simple) animations</li>
+							</ol>
 						<aside class="notes">
-							“Blocks” on the blockchain are made up of pieces of information. 
-							Especially, they have three parts.
-							1.Information about transactions/
-							2.Information about who is taking part in transactions/
-							3.Information that distinguishes them from other blocks/
-						</aside>
-					</section>
-					<section>
-						<img data-src="src/Hash_function.svg" width="800px">
-						<aside class="notes">
-							Hash codes are created by a math function
-							that turns digital information into 
-							a string of numbers and letters.
+							<canvas> can be used to:
+								1.	draw graphs, 
+								2.	combine photos, 
+								3.	create simple (and not so simple) animations.
 						</aside>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h1>How does it work?</h1>
+						<h1>Basic usage of &lt;CANVAS&gt</h1>
 					</section>
 					<section>
+						<pre><code data-trim data-noescape>
+							&lt;canvas id="example" width="150" height="150"&gt 
+							&lt;/canvas&gt
+						</code></pre>
+						<aside class="notes">
+								The <canvas> element has only two attributes, width and height. 
+								These are both optional. 
+								The default size of the canvas is 
+								300 pixels × 150 pixels (width × height).
+								But custom sizes can be defined using the HTML 
+								height and width property.
+								The <canvas> element can be styled just like any 
+								normal image (margin, border, background…). 
+								These rules, however, don't affect the actual 
+								drawing on the canvas.
+						</aside>
+					</section>
+					<section>
+							<pre><code code data-trim data-noescape>&lt;canvas id="example" width="150" height="150"&gt
+	current stock price: $3.15 +0.15
+&lt;/canvas&gt
+
+&lt;canvas id="alt" width="150" height="150"&gt
+	&lt;img src="images/clock.png" width="150" height="150" alt=""/&gt
+&lt;/canvas&gt</code></pre>
+						<aside class="notes">
+								The <canvas> element may not be defined as earlier versions 
+								of Internet Explorer, such as version 9 or text browsers. 
+								In this case, it is worth using the alternative content in the <canvas>. 
+								If the browser does not work with the canvas, then there will be no empty space on the page.
+						</aside>
+					</section>
+					<section>
+							<pre><code data-trim data-noescape>
+									const canvas = document.getElementById('example');
+									if (canvas.getContext) {
+										var ctx = canvas.getContext('2d');
+										// drawing code here
+									  } else {
+										// canvas-unsupported code here
+									  }
+							</code></pre>
+						<aside class="notes">
+								The canvas is initially blank. 
+								To display something, a script first needs to access the rendering 
+								context and draw on it. 
+								The <canvas> element has a method called getContext(), 
+								used to obtain the rendering context and its drawing functions. 
+								getContext() takes one parameter, the type of context.
+						</aside>
+					</section>
+					<section>
+						<h2>Code Example</h2>
+<pre><code data-trim data-noescape>
+&lt;style type="text/css"&gt
+	canvas { border: 1px solid black; }
+&lt;/style&gt
+
+&lt;body onload="draw();"&gt
+	&lt;canvas id="example" width="400" height="400"&gt&lt;/canvas&gt
+&lt;/body&gt
+</code></pre>
+					</section>
+					<section>
+					<pre><code data-trim data-noescape>
+							&lt;script type="text/javascript"&gt
+								function draw() {
+									const canvas = document.getElementById("example");
+									if (canvas.getContext) {
+										let ctx = canvas.getContext("2d");
+										ctx.fillStyle = "rgb(200,0,0)";
+										ctx.fillRect (10, 10, 55, 50);
+
+										ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+										tx.fillRect (30, 30, 55, 50);
+									}
+								}
+							&lt;/script&gt
+					</code></pre>
+					<aside class="notes">
+						The script includes a function called draw(), 
+						which is executed once the page finishes loading.
+					</aside>
+					</section>
+					<section>
+						<h2>Result</h2>
+						<img src="src/1.jpg">
+						<aside class="notes">
+							You can see on the canvas — a box surrounded by a black square — appeared 
+							two squares of the color set by the fillStyle function. 
+							Drawing squares makes fillRect ().
+						</aside>
+					</section>
+					<section>
+						<h2>The grid</h2>
+						<img src="src/2.png" width="500">
+						<aside class="notes">		
+							Figures in functions brackets - coordinates on the Canvas grid. 
+							The starting point is the upper left corner.
+							Normally 1 unit in the grid corresponds to 1 pixel on the canvas.
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Drawing shapes with canvas</h1>
+						<aside class="notes">
+							<canvas> only supports one primitive shape: rectangles. 
+							All other shapes must be created by combining one or more paths, 
+							lists of points connected by lines. Luckily, we have an assortment of path 
+							drawing functions which make it possible to compose very complex shapes.
+						</aside>
+					</section>
+					<section>
+						<h2>The rectangle</h2>
+						<dl>
+							<dt>fillRect(x, y, width, height)</dt>
+							<dd>Draws a filled rectangle.</dd>
+							<br>
+							<dt>strokeRect(x, y, width, height)</dt>
+							<dd>Draws a rectangular outline.</dd>
+							<br>
+							<dt>clearRect(x, y, width, height)</dt>
+							<dd>Clears the specified rectangular area, making it fully transparent.</dd>
+						</dl>
+						<aside class="notes"> 
+							<h2>First let's look at the rectangle.</h2> 
+							1. fillRect(x, y, width, height)
+								Draws a filled rectangle.
+							2. strokeRect(x, y, width, height)
+								Draws a rectangular outline.
+							3. clearRect(x, y, width, height)
+								Clears the specified rectangular area, making it fully transparent.
+						</aside>
+					</section>
+					<section>
+						<h2>Code Example</h2>
+						<pre><code data-trim data-noescape>
+						&lt;script type="text/javascript"&gt
+							function draw() {
+								const canvas = document.getElementById("example");
+					
+								if (canvas.getContext) {
+					
+								let ctx = canvas.getContext("2d");
+								ctx.fillRect(25, 25, 100, 100);
+								ctx.clearRect(45, 45, 60, 60);
+								ctx.strokeRect(50, 50, 50, 50);
+								}
+							}
+						&lt;/script&gt
+					</code></pre>
+					</section>
+					<section>
+						<h2>Result</h2>
+						<img src="src/3.jpg" alt="">
+						<aside class="notes"> 
+							The fillRect() function draws a large black square 100 pixels on each side. 
+							The clearRect() function then erases a 60x60 pixel square from the center, 
+							and then strokeRect() is called to create a rectangular outline 50x50 pixels within the cleared square.
+							Unlike the path functions we'll see in the next section, 
+							all three rectangle functions draw immediately to the canvas.
+						</aside>
+					</section>
+					<section>
+						<h2>Drawing paths.</h2>
+						<aside class="notes">
+							A path is a list of points, connected by segments of lines 
+							that can be of different shapes, curved or not, of different width and of different color.
+						</aside>
+					</section>
+					<section>
+						<h2>To make shapes using paths takes steps:</h2>
 						<ol>
-							<li>A transaction must occur.</li>
-							<li>That transaction must be verified.</li>
-							<li>That transaction must be stored in a block.</li>
-							<li>That block must be given a hash.</li>
+							<li>You create the path</li>
+							<li>Then you use drawing commands to draw into the path</li>
+							<li>Once the path has been created, you can stroke or fill the path to render it</li>
 						</ol>
 						<aside class="notes">
-							In order for a block to be added to the blockchain, however, 
-							4 things must happen.
+							To make shapes using paths takes some steps:
+							1.	You create the path.
+							2.	Then you use drawing commands to draw into the path.
+							3.	Once the path has been created, you can stroke or fill the path to render it.
 						</aside>
 					</section>
 					<section>
-						<img data-src="src/blockchain_to_calculate_2.png" height="250px">
+						<h2>Here are the functions used to perform these steps:</h2>
+						<dl>
+							<dt>beginPath()</dt>
+							<dd>Creates a new path</dd>
+							<br>
+							<dt>Path methods</dt>
+							<dd>Methods to set different paths for objects</dd>
+						</dl>
 						<aside class="notes">
-							The block is also given the hash of the most recent block added to the blockchain. 
-							Once hashed, the block can be added to the blockchain.
+							Here are the functions used to perform these steps:
+							1.beginPath()
+							Creates a new path. 
+							Once created, future drawing commands are directed into the path 
+							and used to build the path up.
+							2. Path methods
+							Methods to set different paths for objects.
 						</aside>
 					</section>
-				</section>
-				<section>
 					<section>
-						<h1>Where Is the Blockchain Stored?</h1>
+						<dl>
+							<dt>closePath()*</dt>
+							<dd>Adds a straight line to the path, 
+								going to the start of the current sub-path</dd>
+							<br>
+							<dt>stroke()</dt>
+							<dd>Draws the shape by stroking its outline</dd>
+							<br>
+							<dt>fill()</dt>
+							<dd>Draws a solid shape by filling the path's content area</dd>
+						</dl>
 						<aside class="notes">
-							Anyone can view the contents of the blockchain, 
-							but users can also opt to connect their computers to the blockchain network.
+							3. * closePath()
+							Adds a straight line to the path, 
+							going to the start of the current sub-path.
+							4. stroke()
+							Draws the shape by stroking its outline.
+							5. fill()
+							Draws a solid shape by filling the path's content area.
 						</aside>
 					</section>
 					<section>
-						<img data-src="src/blockchainnet.png" height="600px">
+						<h2>Drawing a triangle</h2>
+						<pre><code data-trim data-noescape>
+							&lt;script type="text/javascript"&gt
+								function draw() {
+									const canvas = document.getElementById("example");
+									if (canvas.getContext) {
+									ctx.beginPath();
+									ctx.moveTo(75,50);
+									ctx.lineTo(100,75);
+									ctx.lineTo(100,25);
+									ctx.fill();
+								}
+							}
+							&lt;/script&gt
+						</code></pre>
+					</section>
+					<section>
+						<h2>Result</h2>
+						<img src="src/4.png" alt="">
+					</section>
+					<section>
+						<h2>Moving the pen</h2>
+						<dl>
+							<dt>moveTo(x, y)</dt>
+							<dd>Moves the pen to the coordinates specified by x and y.</dd>
+						</dl>
+						<aside class="notes">
+							One very useful function, which doesn't 
+							actually draw anything but becomes part of the path 
+							list described above, is the moveTo() function.
+						</aside>
+					</section>
+					<section>
+						<h2>Example</h2>
+						<pre><code data-trim data-noescape>function draw() {
+  const canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+	let ctx = canvas.getContext('2d');
+	ctx.beginPath();
+	ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+	ctx.moveTo(110, 75);
+	ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+	ctx.moveTo(65, 65);
+	ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+	ctx.moveTo(95, 65);
+	ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+	ctx.stroke();
+  }
+}</code></pre>
+					</section>
+					<section>
+						<h2>Smile</h2>
+						<img src="src/5.jpg" alt="">
+					</section>
+					<section>
+						<h2>Line</h2>
+						<dl>
+							<dt>lineTo(x, y)</dt>
+							<dd>Draws a line from the current drawing position to the position specified by x and y.</dd>
+						</dl>
+						<aside class="notes">
+							Draws a line from the current drawing position to the position specified 
+							by x and y.
+						</aside>
+					</section>
+					<section>
+						<h2>Arcs</h2>
+						<dl>
+							<dt>arc(x, y, radius, startAngle, endAngle, anticlockwise)</dt>
+							<dd>Draws an arc which is centered at (x, y) position with radius r starting at startAngle 
+								and ending at endAngle going in 
+								the given direction indicated by anticlockwise (defaulting to clockwise).</dd>
+							<dt>arcTo(x1, y1, x2, y2, radius)</dt>
+							<dd>Draws an arc with the given control points and radius, 
+								connected to the previous point by a straight line.</dd>
+						</dl>
+						<aside class="notes">
+							1. arc(x, y, radius, startAngle, endAngle, anticlockwise)
+							Draws an arc which is centered at (x, y) position with radius r 
+							starting at startAngle and ending at endAngle going in 
+							the given direction indicated by anticlockwise (defaulting to clockwise).
+							2. arcTo(x1, y1, x2, y2, radius)
+							Draws an arc with the given control points and radius, 
+							connected to the previous point by a straight line.
+						</aside>
+					</section>
+					<section>
+						<h2>Example</h2>
+						<pre><code data-trim data-noescape>function draw() {
+/code/
+ for (let i=0; i<4; i++){
+  for(let j=0; j<3; j++){
+   ctx.beginPath();
+   let x = 25+j*50, y = 25+i*50; // x  y coordinate
+   let radius = 20; // Arc radius
+   let startAngle = 0; // Starting point on circle
+   let endAngle = Math.PI+(Math.PI*j)/2; // End point on circle 
+   let anticlockwise = i%2==0 ? false : true; 
+   // clockwise or anticlockwise	
+   ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+   if (i>1) ctx.fill();
+   else ctx.stroke();} } }</code></pre>
+							<aside class="notes">It draws 12 different arcs all with different angles and fills.
+								The two for loops are for looping through the rows and columns of arcs. 
+								For each arc, we start a new path by calling beginPath(). 
+							</aside>
+					</section>
+					<section>
+						<h2>Clockwise</h2>
+						<img src="src/6.jpg" alt="">
+					</section>
+					<section>
+						<h2>Bezier and quadratic curves</h2>
+						<ul>
+							<li>Quadratic Bezier curves</li>
+							<li>Cubic Bezier curves</li>
+						</ul>
+						<h2>Rectangles</h2>
+					</section>
+					<aside class="notes">Some more drawing functions
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h2>Transformations</h2>
 						<aside class="notes"> 
-							Their computer receives a copy of the blockchain 
-							that is updated automatically whenever a new block is added. 
-							As each copy of the blockchain is identical, spreading 
-							that information across a network of computers 
-							makes the information more difficult to manipulate. 
+							With transformations there are more powerful ways to 
+							translate the origin to a different position, 
+							rotate the grid and even scale it.
 						</aside>
 					</section>
-				</section>
-				<section>
 					<section>
-						<h1>Blockchain Security</h1>
+						<h2>Saving and restoring state</h2>
+						<dl>
+							<dt>save()</dt>
+							<dd>Saves the entire state of the canvas.</dd>
+							<dt>restore()</dt>
+							<dd>Restores the most recently saved canvas state.</dd>
+						</dl>
 						<aside class="notes"> 
-							Transactions on blockchain are not completely anonymous, 
-							personal information about users is limited to their digital signature.
-							If you cannot know who is adding 
-							blocks to the blockchain, how can you trust blockchain? 
+							1. save()
+								Saves the entire state of the canvas.
+							2. restore()
+								Restores the most recently saved canvas state.
+								Canvas states are stored on a stack. 
+								Every time the save() method is called, 
+								the current drawing state is pushed onto the stack.						
 						</aside>
 					</section>
 					<section>
-						<img data-src="src/blockchain-how-it-works.jpg" height="600px">
+						<h2>A drawing state consists of:</h2>
+						<ul>
+							<li>The transformations that have been applied (i.e. translate, rotate and scale – see below).</li>
+							<li>The current values of the following attributes.</li>
+							<li>The current clipping path, which we'll see in the next section.</li>
+						</ul>	
 						<aside class="notes"> 
-							After a block has been added to the end of the blockchain, 
-							it is very difficult to go back and change the contents of the block. 
-							That’s because each block contains its own hash, along with the hash 
-							of the block before it.
+							A drawing state consists of:
+							1. The transformations that have been applied 
+							(i.e. translate, rotate and scale – see below).
+							2. The current values of the following attributes.
+							3. The current clipping path, which we'll see in the next section.					
 						</aside>
 					</section>
 					<section>
-						<img data-src="src/Consensus_flow_chart.svg" height="600px">
-						<aside class="notes"> 
-							To address the issue of trust, blockchain networks have implemented tests for computers 
-							that want to join and add blocks to the chain. 
-							The tests, called “consensus models,” require users to “prove” themselves
- 							before they can participate in a blockchain network.  
+<pre><code code data-trim data-noescape>ctx.fillRect(0, 0, 150, 150);
+// Draw a rectangle with default settings
+ctx.save();   // Save the default state
+ctx.fillStyle = '#09F';   // Make changes to the settings
+ctx.fillRect(15, 15, 120, 120); 
+// Draw a rectangle with new settings
+ctx.save();   // Save the current state
+ctx.fillStyle = '#FFF';  // Make changes to the settings
+ctx.globalAlpha = 0.5; 
+ctx.fillRect(30, 30, 90, 90);
+// Draw a rectangle with new settings
+ctx.restore();               // Restore previous state
+ctx.fillRect(45, 45, 60, 60);
+// Draw a rectangle with restored settings
+ctx.restore();               // Restore original state
+ctx.fillRect(60, 60, 30, 30);
+// Draw a rectangle with restored settings
+</code></pre>
+						<aside class="notes">
+							The first step is to draw a large rectangle with the default settings. 
+							Next we save this state and make changes to the fill color. 
+							We then draw the second and smaller blue rectangle and save the state. 
+							Again we change some drawing settings and draw the third semi-transparent white rectangle.
+							However once we call the first restore() statement, the top drawing state is removed from the stack, 
+							and settings are restored. 
+							When the second restore() statement is called,
+							 the original state (the one we set up before the first call to save) 
+							 is restored and the last rectangle is once again drawn in black.
 						</aside>
 					</section>
-				</section>
-				<section>
 					<section>
-						<h1>Advantages of Blockchain</h1>
+						<h2>Clockwise</h2>
+							<img src="src/6.jpg" alt="">
 					</section>
 					<section>
-						<ol>
-							<li>Decentralization</li>
-							<li>Blockchain is working 24 hours a day, seven days a week</li>
-							<li>Privacy</li>
-							<li>Security</li>
-							<li>Transparency</li>
-						</ol>
+						<h2>Translating</h2>
+						<h2>Rotating</h2>
+						<h2>Scaling</h2>
+						<h2>Transforms</h2>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h1>Disadvantage of Blockchain</h1>
+						<h1>Thanks for attention</h1>
 					</section>
-					<section>
-						<ol>
-							<li>Inefficiency</li>
-							<li>Privacy</li>
-						</ol>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h1>Uses of Blockchain</h1>
-					</section>
-					<section>
-						<ol>
-							<li>Banks</li>
-							<li>Cryptocurrency</li>
-							<li>Healthcare</li>
-							<li>Smart Contracts</li>
-							<li>Supply Chains</li>
-							<li>Voting</li>
-						</ol>
-					</section>
-				</section>
-				<section>
-					<h1>Thanks for attention</h1>
-				</section>
-				<section>
-					<h2>Sources</h2>
-					<ul>
-						<li>
-							<a target="_blank" href="https://github.com/vlsergey/infosec">
-								https://github.com/vlsergey/infosec
-							</a>
-						</li>
-						<li>
-							<a target="_blank" href="https://www.investopedia.com/blockchain-explained-4579860">
-								https://www.investopedia.com/blockchain-explained
-							</a>
-						</li>
-						<li>
-							<a target="_blank" href="https://bitcoin.stackexchange.com/questions/12427/can-someone-explain-how-the-bitcoin-blockchain-works">
-								https://bitcoin.stackexchange.com/questions/12427/can-someone-explain-how-the-bitcoin-blockchain-works
-							</a>
-						</li>
-					</ul>
 				</section>
 			</div>
 		</div>
