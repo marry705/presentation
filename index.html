@@ -104,6 +104,7 @@
 					</section>
 					<section>
 							<h2 style="color: yellow">And a little about the vaunted animation</h2>	
+							<img src="src/html5-canvas-y-u-hate-me-so-much.jpg" alt="" width="450">
 					</section>
 					<section style="min-width: 100%; height: 100%; padding: 0; margin: 0;">
 						<pre><code data-trim data-noescape id="mycode">
@@ -192,11 +193,50 @@
 						</aside>	
 					</section>
 					<section>
-						<img src="src/4.gif" alt="">
+						<img src="src/4.jpg" alt="">
 						<aside class="notes">
-							For comparison let's take SVG.
+							It’s crucial to distinguish between something called immediate mode and retained mode. These are two different approaches to getting content to display in your browser.
+							The Canvas API is an example of immediate mode: you, as the developer, need to work out the commands to draw objects, 
+							create and maintain the model or scene of what the final output should look like, 
+							and specify what needs to be updated. 
+							The browser’s Graphics API simply communicates your drawing commands to the browser, 
+							which then executes them. It’s mean that canvas hasn’t got a Document Object Model. 
+							With canvas, you draw your pixels and the system forgets all about them, 
+							thereby cutting down on the extra memory needed to maintain an internal model of your drawing.
+							Everything is exactly the opposite with SVG (Scalable Vector Graphics), 
+							where each drawn object is added to its internal model, which somewhat eases your developer life, 
+							but with some cost in terms of performance.
 						</aside>
 					</section>
+					<section>
+						<h2 style="color: yellow">What HTML5 Canvas Can Be Great For</h2>
+						<aside class="notes">
+							To summarize, 
+							HTML5 Canvas is a resolution-dependent immediate drawing system 
+							that doesn’t maintain its own model. The last feature is key to this technology’s drawing capabilities 
+							being lightning-fast, which makes HTML5 Canvas great at performing the following tasks:
+						</aside>
+					</section>
+					<section>
+						<h2 style="color: yellow">Ray Tracing</h2>
+						<p>Ray tracing is a technique for creating 3D graphics.
+							<br>
+							Here’s a <a href="http://jupiter909.com/mark/jsrt-anim.html" target="_blank">raytracer application in action</a>.
+						</p> 
+						<aside class="notes">
+							Ray tracing is a technique for creating 3D graphics. 
+							If you’re curious, here’s a raytracer application in action by Mark Webster. 
+						</aside>
+					</section>
+					<section>
+						<h2 style="color: yellow">Drawing a significant number of objects on a small surface</h2>
+						<img src="src/5.jpg" alt="" width="450">
+					</section>
+					<section>
+						<h2 style="color: yellow">Pixel replacement in videos</h2>
+						<img src="src/6.png" alt="" width="450">
+					</section>
+					<section></section>
 				</section>
 				<section>
 					<section>
