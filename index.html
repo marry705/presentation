@@ -90,16 +90,14 @@
 					</code></pre>
 						<img src="src/2.jpg">
 						<aside class="notes">
-							Canvas has several strategies when it comes to drawing paths, 
-							boxes, circles, text & adding images.
 							On the slide you see the function, 
 							and next is the result of its work.
 							A bit of code:
 							1. Function getContext('2d') needed to set context.
-							2. Function beginPath() creates a new path. 
-							3. Function arc (60, 65, 5, 0, Math.PI * 2, true) draws an arc which is centered at the point with coordinates (60, 65) position with radius 5 px starting at  startAngle = 0 and ending at endAngle = Math.PI*2 going in the given direction indicated by anticlockwise.
-							4. Function moveTo(110, 75) moves the pen to the coordinates specified by 110 and 75.
-							5. Function stroke() draws the shape by stroking its outline.
+							2. Function beginPath() creates a new path.
+							5. Function stroke() draws the shape by stroking its outline. 
+							3. Function arc draws an arc which is centered at the defined point with defined radius starting at startAngle and ending at endAngle going in the given direction indicated by anticlockwise.
+							4. Function moveTo(110, 75) moves the pen to the point with defined coordinates.
 						</aside>
 					</section>
 					<section>
@@ -134,7 +132,6 @@
 						</code></pre>
 						<a href="https://github.com/marry705/canvase_animation" target="_blank">THE CODE</a>
 						<aside class="notes">
-							And a little about the vaunted animation. 
 							The whole question can be considered by clicking on the link, 
 							but now we’ve stopped only on the function responsible for the animation.
 						</aside>
@@ -154,10 +151,9 @@
 							Elements are animated using a loop.  
 							Every circle has its own «life» and moves. 
 							When the border is reached it bounces [БОНСЕС] back. 
-							We slightly moving the image at every frame rendering iteration.
 							1.	Method requestAnimationFrame(callback) requests that the browser call a specified function to update an animation before the next repaint. 
 							2.	clearRect() clears any shapes that have been drawn previously.
-							3.	Update() – the circle class method, which internally changes the parameters of the circle (coordinates of its cent and radius) and then draws a new circle. 	
+							3.	Update() – the circle class method, which draws a new circle. 	
 						</aside>
 					</section>
 					<section>
@@ -191,21 +187,21 @@
 					<section>
 						<img src="src/4.jpg" alt="">
 						<aside class="notes">
-							It’s impotent to distinguish between something called immediate mode and retained mode. These are two different approaches to getting content to display in your browser.
+							It’s impotent to distinguish between something called immediate 
+							mode and retained mode. 
 							The Canvas API is an example of immediate mode: you, as the developer, need to work out the commands to draw objects. 
 							The browser’s Graphics API simply communicates your drawing commands to the browser, 
 							which then executes them. It’s mean that canvas hasn’t got a Document Object Model. 
 							With canvas, you draw your pixels and the system forgets all about them.
-							Everything is exactly the opposite with SVG (Scalable Vector Graphics).
 						</aside>
 					</section>
 					<section>
 						<h2 style="color: red">What HTML5 Canvas Can Be Great For</h2>
 						<aside class="notes">
 							To summarize, 
-							HTML5 Canvas is a resolution-dependent immediate drawing system 
+							Canvas is a resolution-dependent immediate drawing system 
 							that doesn’t maintain its own model. The last feature is key to this technology’s drawing capabilities 
-							being lightning-fast, which makes HTML5 Canvas great at performing the following tasks:
+							being lightning-fast, which makes Canvas great at performing the following tasks:
 						</aside>
 					</section>
 					<section>
@@ -236,10 +232,6 @@
 					</section>
 					<section>
 						<h3>Scalability</h3>
-						<aside class="notes">
-							In situations where scalability is a plus are going to be better 
-							served using SVGs than canvas.
-						</aside>
 					</section>
 					<section>
 						<h3>Accessibility</h3>
@@ -269,8 +261,6 @@
 						<aside class="notes">
 							Advantages:
 							1. Canvas is really interactive: 
-							It responds to user interactions by listening for any touch events, 
-							keywords and mouse
 							2. With Canvas, you always have the option of saving images as .png or .jpg
 							3. Any object that you draw on the canvas can be animated
 							4. Very efficient [ЭФИШЕНТ] in dealing with multiple elements
@@ -301,8 +291,6 @@
 							<li><a href="http://www.giantstepsmedias.com/" target="_blank">STARS</a></li>
 						</ol>
 						<aside class="notes">
-							Instead of a thousand words. 
-							Take a look at the canvas in action. 
 							Follow the links provided.	
 						</aside>
 					</section>
