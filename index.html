@@ -151,7 +151,7 @@
 						<aside class="notes">
 							Elements are animated using a loop.  
 							Every circle has its own «life» and moves. 
-							When the border is reached it bounces [БОНСЕС] back, we slightly moving the image at every frame rendering iteration. 
+							When the border is reached it bounces [БОНСЕС] back, we slightly [СлАЙТЛИ] moving the image at every frame rendering iteration. 
 							1.	Method requestAnimationFrame(callback) requests that the browser call a specified function to update an animation before the next repaint. 
 							2.	clearRect() clears any shapes that have been drawn previously.
 							3.	Update() – the circle class method, which draws a new circle. 	
@@ -193,8 +193,16 @@
 							The Canvas API is an example of immediate mode: you, as the developer, need to work out the commands to draw objects. 
 							The browser’s Graphics API simply communicates your drawing commands to the browser, 
 							which then executes them. It’s mean that canvas hasn’t got a Document Object Model. 
-							With canvas, you draw your pixels and the system forgets all about them, thereby cutting down on the extra memory needed to maintain an internal model of your drawing.
-							Everything is exactly the opposite with SVG (Scalable Vector Graphics), where each drawn object is added to its internal model, which somewhat eases your developer life, but with some cost in terms of performance.
+						</aside>
+					</section>
+					<section>
+						<img src="src/14-1.jpg" alt="">
+						<aside class="notes">
+							With canvas, you draw your pixels and the system forgets all about them, 
+							thereby [СЕРЕБАЙ] cutting down on the extra memory needed to maintain an internal model 
+							of your drawing.
+							Everything is exactly the opposite with SVG, where each drawn object is added to its 
+							internal model, which somewhat eases your developer life, but with some cost in terms of performance.
 						</aside>
 					</section>
 					<section>
