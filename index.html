@@ -151,12 +151,11 @@
 						</code></pre>
 						<a href="https://marry705.github.io/canvase_animation/" target="_blank">RESULT</a> 
 						<aside class="notes">
-							Elements are animated using a loop. Based on the example above, we animate the elements using a loop. 
+							Elements are animated using a loop.  
 							Every circle has its own «life» and moves. 
-							When the border is reached it bounces back. 
+							When the border is reached it bounces [БОНСЕС] back. 
 							We slightly moving the image at every frame rendering iteration.
-							1.	Method requestAnimationFrame(callback) tells the browser that you wish to perform an animation 
-							and requests that the browser call a specified function to update an animation before the next repaint. 
+							1.	Method requestAnimationFrame(callback) requests that the browser call a specified function to update an animation before the next repaint. 
 							2.	clearRect() clears any shapes that have been drawn previously.
 							3.	Update() – the circle class method, which internally changes the parameters of the circle (coordinates of its cent and radius) and then draws a new circle. 	
 						</aside>
@@ -172,13 +171,9 @@
 						<aside class="notes">
 							These are the steps you need to take to draw a frame:
 							1.	Clear the canvas								
-							At first you need to clear any shapes that have been drawn previously. 
 							2.	Save the canvas state
-							If you're changing any setting (such as styles, transformations, etc.) which affect the canvas state and you want to make sure the original state is used each time a frame is drawn, you need to save that original state.
 							3.	Draw animated shapes
-							The step where you do the actual frame rendering.
-							4.	Restore the canvas stat.
-							If you've saved the state, restore it before drawing a new frame.		 
+							4.	Restore the canvas stat.		 
 						</aside>
 					</section>
 					<section>
@@ -196,17 +191,12 @@
 					<section>
 						<img src="src/4.jpg" alt="">
 						<aside class="notes">
-							It’s crucial to distinguish between something called immediate mode and retained mode. These are two different approaches to getting content to display in your browser.
-							The Canvas API is an example of immediate mode: you, as the developer, need to work out the commands to draw objects, 
-							create and maintain the model or scene of what the final output should look like, 
-							and specify what needs to be updated. 
+							It’s impotent to distinguish between something called immediate mode and retained mode. These are two different approaches to getting content to display in your browser.
+							The Canvas API is an example of immediate mode: you, as the developer, need to work out the commands to draw objects. 
 							The browser’s Graphics API simply communicates your drawing commands to the browser, 
 							which then executes them. It’s mean that canvas hasn’t got a Document Object Model. 
-							With canvas, you draw your pixels and the system forgets all about them, 
-							thereby cutting down on the extra memory needed to maintain an internal model of your drawing.
-							Everything is exactly the opposite with SVG (Scalable Vector Graphics), 
-							where each drawn object is added to its internal model, which somewhat eases your developer life, 
-							but with some cost in terms of performance.
+							With canvas, you draw your pixels and the system forgets all about them.
+							Everything is exactly the opposite with SVG (Scalable Vector Graphics).
 						</aside>
 					</section>
 					<section>
@@ -247,17 +237,17 @@
 					<section>
 						<h3>Scalability</h3>
 						<aside class="notes">
-							Most scenarios where scalability is a plus are going to be better 
+							In situations where scalability is a plus are going to be better 
 							served using SVGs than canvas.
 						</aside>
 					</section>
 					<section>
 						<h3>Accessibility</h3>
 						<aside class="notes">
-							If accessibility is crucial to your application, 
+							If accessibility is impotent to your application, 
 							using canvas is generally not recommended. 
 							What you draw on the canvas surface is just a bunch of pixels, 
-							which can’t be read or interpreted by assistive technologies or search engine bots.
+							which can’t be read or interpreted by assistive technologies or search bots.
 						</aside>
 					</section>
 					<section>
@@ -283,7 +273,7 @@
 							keywords and mouse
 							2. With Canvas, you always have the option of saving images as .png or .jpg
 							3. Any object that you draw on the canvas can be animated
-							4. Very efficient in dealing with multiple elements
+							4. Very efficient [ЭФИШЕНТ] in dealing with multiple elements
 						</aside>
 					</section>
 					<section>
