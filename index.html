@@ -68,6 +68,7 @@
 							In order to draw the graphics, you are supposed to use a script. 
 							The canvas element has only two optional attributes, width and height. 
 							The default values for heights are 300 px and 150 for width.
+							Canvas has several strategies when it comes to drawing paths, boxes, circles, text & additional images. 
 						</aside>
 					</section>
 					<section style="min-width: 100%; padding: 0; margin: 0;">
@@ -97,7 +98,7 @@
 							2. Function beginPath() creates a new path.
 							5. Function stroke() draws the shape by stroking its outline. 
 							3. Function arc draws an arc which is centered at the defined point with defined radius starting at startAngle and ending at endAngle going in the given direction indicated by anticlockwise.
-							4. Function moveTo(110, 75) moves the pen to the point with defined coordinates.
+							4. Function moveTo() moves the pen to the point with defined coordinates.
 						</aside>
 					</section>
 					<section>
@@ -150,7 +151,7 @@
 						<aside class="notes">
 							Elements are animated using a loop.  
 							Every circle has its own «life» and moves. 
-							When the border is reached it bounces [БОНСЕС] back. 
+							When the border is reached it bounces [БОНСЕС] back, we slightly moving the image at every frame rendering iteration. 
 							1.	Method requestAnimationFrame(callback) requests that the browser call a specified function to update an animation before the next repaint. 
 							2.	clearRect() clears any shapes that have been drawn previously.
 							3.	Update() – the circle class method, which draws a new circle. 	
@@ -192,7 +193,8 @@
 							The Canvas API is an example of immediate mode: you, as the developer, need to work out the commands to draw objects. 
 							The browser’s Graphics API simply communicates your drawing commands to the browser, 
 							which then executes them. It’s mean that canvas hasn’t got a Document Object Model. 
-							With canvas, you draw your pixels and the system forgets all about them.
+							With canvas, you draw your pixels and the system forgets all about them, thereby cutting down on the extra memory needed to maintain an internal model of your drawing.
+							Everything is exactly the opposite with SVG (Scalable Vector Graphics), where each drawn object is added to its internal model, which somewhat eases your developer life, but with some cost in terms of performance.
 						</aside>
 					</section>
 					<section>
