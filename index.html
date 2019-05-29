@@ -7,7 +7,7 @@
 		<title>CANVAS</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/night.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 		<link rel="stylesheet" href="css/mycss.css">
 
 
@@ -43,7 +43,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">&lt;CANVAS&gt can be used for:</h2>
+						<h2 style="color: red">&lt;CANVAS&gt can be used for:</h2>
 						<ol>
 							<li>Dynamic graphics</li>
 							<li>Online and offline games</li>
@@ -67,7 +67,7 @@
 							The canvas element is only a container for graphics. 
 							In order to draw the graphics, you are supposed to use a script. 
 							The canvas element has only two optional attributes, width and height. 
-							The default values for heights are 300 px and 150 for heights.
+							The default values for heights are 300 px and 150 for width.
 						</aside>
 					</section>
 					<section style="min-width: 100%; padding: 0; margin: 0;">
@@ -103,7 +103,7 @@
 						</aside>
 					</section>
 					<section>
-							<h2 style="color: yellow">And a little about the vaunted animation</h2>	
+							<h2 style="color: red">And a little about the vaunted animation</h2>	
 							<img src="src/html5-canvas-y-u-hate-me-so-much.jpg" alt="" width="450">
 					</section>
 					<section style="min-width: 100%; height: 100%; padding: 0; margin: 0;">
@@ -116,7 +116,7 @@
 	  const circlesCount = 800;
 	  const maxRadius = 40;
 	  const circleArray = [];
-	  const colorArray = ['#046975','#2EA1D4','#3BCC2A','#FFDF59','#FF1D47'];
+	  const colorArray = [ '#046975','#2EA1D4','#3BCC2A' ];
 	
 	  const debounce = (func) => {...}
 	
@@ -129,7 +129,8 @@
 	  const animate = () => {...};
 	
 	  init();
-	  animate();}
+	  animate();
+	}
 						</code></pre>
 						<a href="https://github.com/marry705/canvase_animation" target="_blank">THE CODE</a>
 						<aside class="notes">
@@ -161,7 +162,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">Basic animation steps</h2>
+						<h2 style="color: red">Basic animation steps</h2>
 						<ol>
 							<li>Clear the canvas</li>
 							<li>Save the canvas state</li>
@@ -181,7 +182,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">Browser Support for Canvas:</h2>
+						<h2 style="color: red">Browser Support for Canvas:</h2>
 						<img src="src/3.jpg">
 					</section>
 				</section>
@@ -209,7 +210,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">What HTML5 Canvas Can Be Great For</h2>
+						<h2 style="color: red">What HTML5 Canvas Can Be Great For</h2>
 						<aside class="notes">
 							To summarize, 
 							HTML5 Canvas is a resolution-dependent immediate drawing system 
@@ -218,7 +219,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">Ray Tracing</h2>
+						<h3>Ray Tracing</h3>
 						<p>Ray tracing is a technique for creating 3D graphics.
 							<br>
 							Here’s a <a href="http://jupiter909.com/mark/jsrt-anim.html" target="_blank">raytracer application in action</a>.
@@ -229,29 +230,29 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">Drawing a significant number of objects on a small surface</h2>
+						<h3>Drawing a significant number of objects on a small surface</h3>
 						<img src="src/5.jpg" alt="" width="450">
 					</section>
 					<section>
-						<h2 style="color: yellow">Pixel replacement in videos</h2>
+						<h3>Pixel replacement in videos</h3>
 						<img src="src/6.png" alt="" width="450">
 					</section>
 					<section>
-						<h2 style="color: yellow">What HTML5 Canvas Is Not So Great For</h2>
+						<h2 style="color: red">What HTML5 Canvas Is Not So Great For</h2>
 						<aside class="notes">
 							On the other hand, 
 							there are a number of cases where canvas is not the best choice.
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">Scalability</h2>
+						<h3>Scalability</h3>
 						<aside class="notes">
 							Most scenarios where scalability is a plus are going to be better 
 							served using SVGs than canvas.
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">Accessibility</h2>
+						<h3>Accessibility</h3>
 						<aside class="notes">
 							If accessibility is crucial to your application, 
 							using canvas is generally not recommended. 
@@ -260,7 +261,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">No reliance on JavaScript</h2>
+						<h3>No reliance on JavaScript</h3>
 						<aside class="notes">
 							If you don’t want to use JavaScript in your application, 
 							then canvas is not your best friend, 
@@ -268,7 +269,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">Advantages:</h2>
+						<h2 style="color: red">Advantages:</h2>
 						<ol>
 							<li>Canvas is really interactive</li>
 							<li>With Canvas, you always have the option of saving images as .png or .jpg</li>
@@ -286,7 +287,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2 style="color: yellow">Disadvantages:</h2>
+						<h2 style="color: red">Disadvantages:</h2>
 						<ol>
 							<li>Canvas is dependent on resolution</li>
 							<li>Complex visualizations</li>
