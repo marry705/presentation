@@ -97,7 +97,7 @@
 							1. Function getContext('2d') needed to set context.
 							2. Function beginPath() creates a new path.
 							5. Function stroke() draws the shape by stroking its outline. 
-							3. Function arc draws an arc which is centered at the defined point with defined radius starting at startAngle and ending at endAngle going in the given direction indicated by anticlockwise.
+							3. Function arc draws an arc. The first two parameters of the function -- the coordinates of the circles center, the second is the length of its radius, starting at startAngle (the fourth) and ending at endAngle (the fifth).
 							4. Function moveTo() moves the pen to the point with defined coordinates.
 						</aside>
 					</section>
@@ -234,6 +234,9 @@
 					</section>
 					<section>
 						<h3>Scalability</h3>
+						<aside class="notes">
+							Most scenarios where scalability is a plus are going to be better served using SVGs than canvas.
+						</aside>
 					</section>
 					<section>
 						<h3>Accessibility</h3>
